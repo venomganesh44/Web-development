@@ -1,0 +1,119 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+}
+body
+{
+    background-color:rgb(193, 193, 193);
+
+}
+h1
+{
+    margin: 15px auto;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    z-index: 3;
+}
+h1:hover
+{
+    color: chartreuse;
+    cursor:progress;
+    text-decoration: underline;
+}
+.outterbox
+{
+    height: max-content;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box
+{
+    width:50px;
+    height: 50px;
+    border: 1px rgb(255, 255, 255) dotted;
+    border-radius: 100%;
+    animation: boxanimate 2s linear infinite;
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    z-index: -2;
+}
+#label1,#label2
+{
+    line-height: 30px;
+    margin-right: 10px;
+}
+#label1,#label2,#l1,#l2,#l3,#l4,#l5,#l6
+{
+    color:rgb(6, 6, 6);
+}
+input[type="number"]
+{
+    width: 70px;
+    border: none;
+    outline: none;
+    text-align: center;
+    background: linear-gradient(90deg,rgb(122, 122, 214),rgb(97, 194, 97));
+    font-style: italic;
+    color: rgb(245, 241, 238);
+}
+@keyframes boxanimate
+{
+    0%
+    {
+        transform: rotate(0deg);
+        background-color: aqua;
+    }
+    25%
+    {
+        transform: rotate(-90deg);
+        top: 0px;
+        background-color: blue;
+        border-radius: 0px;
+    }
+    50%
+    {
+        transform: rotate(180deg);
+        background-color: cadetblue;
+    }
+    75%
+    {
+        transform: rotate(270deg);
+        background-color: chartreuse;
+    }
+    100%
+    {
+        transform: rotate(360deg);
+        left: 0%;
+        top: 350px;
+        background-color: turquoise;
+    }
+}
+p
+{
+    text-align: left;
+    text-indent: 50px;
+    color: rgb(4, 4, 4);
+}
+.mouse_outside
+{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mouse_box
+{
+    width: calc(100%/2);
+    height: 300px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(196, 196, 196, 0.526);
+}

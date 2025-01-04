@@ -16,6 +16,7 @@ body
 {
     height: 100vh;
     width: 100vw;
+    background: grey;
 }
 h1
 {
@@ -38,7 +39,7 @@ option
 {
     background-color: rgb(224, 211, 211);
 }
-input[type=text]
+input[type=number]
 {
     width: 150px;
     height: 30px;
@@ -58,7 +59,7 @@ input[type=text]
 }
 #label1
 {
-    background-color:white;
+    background-color:grey;
     width: 100%;
     text-align: center;
     font-size: small;
@@ -69,7 +70,7 @@ input[type=text]
 }
 #label2
 {
-    background-color:white;
+    background-color:grey;
     width: 100%;
     font-size: small;
     text-align: center;
@@ -139,7 +140,7 @@ input[type=text]
                 <option>CENTIMETER</option>
                 <option>MILLIMETER</option>
             </select><br><br><br>
-            <input type="text" id="text1" placeholder="INPUT"><label id="label1" for="text1"></label>
+            <input type="number" id="text1" placeholder="INPUT"><label id="label1" for="text1"></label>
             <span id="symbol">=</span>
         </div>
         <div class="outter2">
@@ -150,7 +151,7 @@ input[type=text]
                 <option>CENTIMETER</option>
                 <option>MILLIMETER</option>
             </select><br><br><br>
-            <input type="text" id="text2" placeholder="OUTPUT" disabled><label id="label2" for="text2"></label>
+            <input type="number" id="text2" placeholder="OUTPUT" disabled><label id="label2" for="text2"></label>
         </div>
  </div>
  <br><br>
@@ -169,6 +170,8 @@ var label1=document.querySelector("#label1");
 var label2=document.querySelector("#label2");
 var option1=document.querySelector("#s1");
 var para=document.querySelector(".para");
+inputVal.oninput=calculate;
+
 function calculate()
 {
     const a=select_value1.value;
@@ -176,6 +179,7 @@ function calculate()
     label1.innerHTML=a;
     const b=inputVal.value;
     label2.innerHTML=c;
+
     if((select_value1.value=="MILE") && (select_value2.value=="MILE"))
     {
         outputVal.value=b*1;
@@ -305,12 +309,10 @@ function calculate()
         outputVal.value=b*1;
         para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
     }
-    else
-    {
-        
-    }
 }
-inputVal.oninput=calculate;
+
+
+
 
 select_value1.addEventListener('click',function()
 {
@@ -330,6 +332,14 @@ select_value2.addEventListener('click',function()
     para.innerHTML="";
     console.log(b);
 });
+
+var z="delhi";
+console.log(typeof z);
+if(typeof z=="string")
+{
+    console.log("successfully fetched");
+}
+
 </Script>
 </html>
 
