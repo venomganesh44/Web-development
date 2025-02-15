@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RANDOM COLOR GENERATOR</title>
+</head>
+<style>
+*
+{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+#main
+{
+    width:100vw;
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color:;
+}
+h1
+{
+    font-size: 60px;
+    color: brown;
+    text-decoration: underline;
+}
+label,span
+{
+    font-size: 30px;
+    color: cornflowerblue;
+}
+button
+{
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    background-color: darkmagenta;
+    cursor: pointer;
+}
+</style>
+<body>
+    <div id="main">
+        <h1>RANDOM COLOR GENERATOR</h1>
+        <label for="hexa">HEXA CODE = <span id="hexa"></span></label>
+        <button id="button">CLICK ME</button>
+    </div>
+</body>
+<script>
+    const btn=document.getElementById("button");
+    const main=document.getElementById("main");
+    const arr=['1','2','3','4','5','6','7','8','9','0','A','B','C','D','E','F'];
+    
+   btn.addEventListener('click',function()
+    {
+        let max=100000;let min=100;
+        const randomValue1=Math.floor(Math.random()*16);
+        const arra=arr[randomValue1];
+        console.log(arra);
+        const randomValue2=Math.floor(Math.random()*(max-min));
+        console.log(arra+randomValue2);
+        randomValue=arra.concat(randomValue2);
+        console.log("before"+randomValue);
+        if(randomValue.length<=5)
+        {
+            randomValue=randomValue.concat('7');
+            console.log('after'+randomValue);
+        }
+        main.style.backgroundColor='#'+randomValue;
+        document.getElementById("hexa").innerHTML='#'+randomValue;
+    });
+    
+    /*function gen()
+    {
+    let a=Math.floor(Math.random()*16);
+    b=arr[a];
+
+    console.log(b);
+    }
+gen();*/
+</script>
+</html>

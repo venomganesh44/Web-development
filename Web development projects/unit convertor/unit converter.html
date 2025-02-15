@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIT CONVERTOR</title>
+<style>
+*
+{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body
+{
+    height: 100vh;
+    width: 100vw;
+    background: grey;
+}
+h1
+{
+    margin: 50px 0px;
+    text-align: center;
+}
+.outter
+{
+    display: flex;
+    column-gap: 20px;
+    justify-content: center;
+}
+#s1,#s2
+{
+    height: 30px;
+    width: 150px;
+    text-align: center;
+}
+option
+{
+    background-color: rgb(224, 211, 211);
+}
+input[type=number]
+{
+    width: 150px;
+    height: 30px;
+    text-align: center;
+}
+.outter1
+{
+    position: relative;
+}
+.outter2
+{
+    position: relative;
+}
+#text2
+{
+    border: 1px solid black;
+}
+#label1
+{
+    background-color:grey;
+    width: 100%;
+    text-align: center;
+    font-size: small;
+    position: absolute;
+    top: 45px;
+    left: -10px;
+    z-index: 2;
+}
+#label2
+{
+    background-color:grey;
+    width: 100%;
+    font-size: small;
+    text-align: center;
+    position: absolute;
+    top: 45px;
+    left: 0px;
+    z-index: 2;
+}
+#text1:focus
+{
+    outline: none;
+}
+#text1:focus +#mile_label
+{
+    position: absolute;
+    left: 150px;
+    top: 199px;
+    z-index: 0;
+    transition: all 0.2s linear;
+}
+#text1:not(:focus):valid+ #mile_label
+{
+    position: absolute;
+    left: 150px;
+    top: 199px;
+}
+.btn
+{
+    width: fit-content;
+    height: fit-content;
+    margin: 25px auto;
+
+}
+#calculate
+{
+    width: 130px;
+    height: 35px;
+    background-color: rgb(77, 77, 223);
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+}
+.para
+{
+    text-align: center;
+    font-size: x-large;
+    color: green;
+    font-weight: bold;
+}
+#symbol
+{
+    text-align: center;
+    margin-left: 15px;
+}
+</style>
+</head>
+<body>
+    <h1>UNITS CONVERTION</h1>
+
+ <div class="outter">
+        <div class="outter1">
+            <select id="s1">
+                <option>MILE</option>
+                <option>KILOMETER</option>
+                <option>METER</option>
+                <option>CENTIMETER</option>
+                <option>MILLIMETER</option>
+            </select><br><br><br>
+            <input type="number" id="text1" placeholder="INPUT"><label id="label1" for="text1"></label>
+            <span id="symbol">=</span>
+        </div>
+        <div class="outter2">
+            <select  id="s2">
+                <option>MILE</option>
+                <option>KILOMETER</option>
+                <option>METER</option>
+                <option>CENTIMETER</option>
+                <option>MILLIMETER</option>
+            </select><br><br><br>
+            <input type="number" id="text2" placeholder="OUTPUT" disabled><label id="label2" for="text2"></label>
+        </div>
+ </div>
+ <br><br>
+ <div class="para"></div>
+<!--<div class="btn">
+<input type="button" id="calculate" value="CALCULATE">
+</div>-->
+</body>
+<Script>
+var inputVal=document.querySelector("#text1");
+var outputVal=document.querySelector("#text2");
+var select_value1=document.querySelector("#s1");
+var select_value2=document.querySelector("#s2");
+var calculate1=document.querySelector("#calculate");
+var label1=document.querySelector("#label1");
+var label2=document.querySelector("#label2");
+var option1=document.querySelector("#s1");
+var para=document.querySelector(".para");
+inputVal.oninput=calculate;
+
+function calculate()
+{
+    const a=select_value1.value;
+    const c=select_value2.value;
+    label1.innerHTML=a;
+    const b=inputVal.value;
+    label2.innerHTML=c;
+
+    if((select_value1.value=="MILE") && (select_value2.value=="MILE"))
+    {
+        outputVal.value=b*1;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    else if((select_value1.value=="MILE") && (select_value2.value=="KILOMETER"))
+    {
+        outputVal.value=b*1.60934;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    else if((select_value1.value=="MILE") && (select_value2.value=="METER"))
+    {
+        outputVal.value=b*1609.34;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    else if((select_value1.value=="MILE") && (select_value2.value=="CENTIMETER"))
+    {
+        outputVal.value=b*160934.4;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    else if((select_value1.value=="MILE") && (select_value2.value=="MILLIMETER"))
+    {
+        outputVal.value=b*1609344;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+//kilometer conversion
+    if((select_value1.value=="KILOMETER") && (select_value2.value=="MILE"))
+    {
+        outputVal.value=b/1.609;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    if((select_value1.value=="KILOMETER") && (select_value2.value=="KILOMETER"))
+    {
+        outputVal.value=b*1;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    if((select_value1.value=="KILOMETER") && (select_value2.value=="METER"))
+    {
+        outputVal.value=b*1000;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    if((select_value1.value=="KILOMETER") && (select_value2.value=="CENTIMETER"))
+    {
+        outputVal.value=b*100000;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    if((select_value1.value=="KILOMETER") && (select_value2.value=="MILLIMETER"))
+    {
+        outputVal.value=b*1000000;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+//meter convertion    
+    if((select_value1.value=="METER") && (select_value2.value=="MILE"))
+    {
+        outputVal.value=b/1609;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    if((select_value1.value=="METER") && (select_value2.value=="KILOMETER"))
+    {
+        outputVal.value=b/1000;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    if((select_value1.value=="METER") && (select_value2.value=="METER"))
+    {
+        outputVal.value=b*1;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    if((select_value1.value=="METER") && (select_value2.value=="CENTIMETER"))
+    {
+        outputVal.value=b*100;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    if((select_value1.value=="METER") && (select_value2.value=="MILLIMETER"))
+    {
+        outputVal.value=b*1000;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+//centimeter conversion
+    if((select_value1.value=="CENTIMETER") && (select_value2.value=="MILE"))
+    {
+        outputVal.value=b/160900;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    if((select_value1.value=="CENTIMETER") && (select_value2.value=="KILOMETER"))
+    {
+        outputVal.value=b/100000;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    if((select_value1.value=="CENTIMETER") && (select_value2.value=="METER"))
+    {
+        outputVal.value=b/100;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    if((select_value1.value=="CENTIMETER") && (select_value2.value=="CENTIMETER"))
+    {
+        outputVal.value=b*1;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    if((select_value1.value=="CENTIMETER") && (select_value2.value=="MILLIMETER"))
+    {
+        outputVal.value=b*10;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+//millimeter conversion
+    if((select_value1.value=="MILLIMETER") && (select_value2.value=="MILE"))
+    {
+        outputVal.value=b*1.609000000;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    if((select_value1.value=="MILLIMETER") && (select_value2.value=="KILOMETER"))
+    {
+        outputVal.value=b/1000000;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    if((select_value1.value=="MILLIMETER") && (select_value2.value=="METER"))
+    {
+        outputVal.value=b/1000;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    if((select_value1.value=="MILLIMETER") && (select_value2.value=="CENTIMETER"))
+    {
+        outputVal.value=b/10;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+    if((select_value1.value=="MILLIMETER") && (select_value2.value=="MILLIMETER"))
+    {
+        outputVal.value=b*1;
+        para.innerHTML=inputVal.value+" "+select_value1.value+" is equal to "+outputVal.value+" "+select_value2.value;
+    }
+}
+
+
+
+
+select_value1.addEventListener('click',function()
+{
+    const a=select_value1.value;
+    label1.innerHTML=a;
+    inputVal.value="";
+    outputVal.value="";
+    para.innerHTML="";
+    console.log(a);
+});
+select_value2.addEventListener('click',function()
+{
+    const b=select_value2.value;
+    label2.innerHTML=b;
+    inputVal.value="";
+    outputVal.value="";
+    para.innerHTML="";
+    console.log(b);
+});
+
+var z="delhi";
+console.log(typeof z);
+if(typeof z=="string")
+{
+    console.log("successfully fetched");
+}
+
+</Script>
+</html>
+
+
+
+
+
+

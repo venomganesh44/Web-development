@@ -1,0 +1,94 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.container
+{
+    height: 100vh;
+    width: 90vw;
+    display: grid;
+    grid-template-columns: 150px 2fr 150px;
+    grid-template-rows: 0.4fr 3fr 0.4fr;
+    grid-template-areas: 'header header header'
+                         'aside main beside'
+                         'footer footer footer';
+    grid-gap: 5px;
+}
+.header
+{
+    background-color: aqua;
+    grid-area: header;
+}
+.main
+{
+    background-color: chocolate;
+    grid-area: main;
+}
+.aside
+{
+    background-color: antiquewhite;
+    grid-area: aside;
+}
+.beside
+{
+    background-color: blueviolet;
+    grid-area: beside;
+}
+.footer
+{
+    background-color: cadetblue;
+    grid-area: footer;
+}
+.header,.main,.aside,.beside,.footer
+{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.id_card
+{
+    height: 400px;
+    width: 300px;
+    border: 5px solid black;
+    border-radius: 15px;
+    color: rgba(214, 207, 207, 0.989);
+    position: relative;
+}
+.id_outter 
+{
+    background-image:url(WhatsApp\ Image\ 2025-01-02\ at\ 00.54.14_3f5be7c4.jpg);
+    background-position: right;
+    background-size: 150%;
+    background-repeat: no-repeat;
+    height:100%;
+    width: 100%;
+    transition: 0.5s;
+}
+.id_card h2
+{
+    position: absolute;
+    bottom: 60px;
+    left: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.id_card h3
+{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+.id_outter:hover
+{
+    background-position: center;
+    transition:all 0.5s ease-in-out;
+    background-size: 100%;
+}
